@@ -17,4 +17,18 @@ func main() {
 	}
 
 	fmt.Println(db)
+
+	db.AutoMigrate(&User{})
+
+	user3 := User{
+		Id: 3,
+	}
+	db.Delete(&user3)
+}
+
+type User struct {
+	Id        int
+	FirstName string
+	LastName  string
+	Email     string
 }
